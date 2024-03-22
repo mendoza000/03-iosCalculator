@@ -15,6 +15,14 @@ export const useCalculator = () => {
     setOperation(operation.slice(0, -1));
   };
 
+  const toggleSign = () => {
+    if (operation.includes('-')) {
+      setOperation(operation.replace('-', ''));
+    } else {
+      setOperation(`-${operation}`);
+    }
+  };
+
   const buildOperation = (number: string) => {
     if (operation.includes('.') && number === '.') {
       return;
@@ -46,5 +54,6 @@ export const useCalculator = () => {
     buildOperation,
     clean,
     deleteLastNumber,
+    toggleSign,
   };
 };
