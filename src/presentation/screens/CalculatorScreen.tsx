@@ -5,7 +5,7 @@ import Button from '../components/ui/Button';
 import {useCalculator} from '../hooks/useCalculator';
 
 const CalculatorScreen = () => {
-  const {operation, buildOperation} = useCalculator();
+  const {operation, buildOperation, clean} = useCalculator();
 
   return (
     <View style={globalStyles.container}>
@@ -18,11 +18,7 @@ const CalculatorScreen = () => {
       <Text style={globalStyles.subTotal}>20</Text>
 
       <View style={globalStyles.row}>
-        <Button
-          onPress={() => console.log('C')}
-          text="C"
-          color={colors.lightGray}
-        />
+        <Button onPress={clean} text="C" color={colors.lightGray} />
         <Button
           onPress={() => console.log('+/-')}
           text="+/-"

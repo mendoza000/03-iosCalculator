@@ -3,6 +3,10 @@ import {useState} from 'react';
 export const useCalculator = () => {
   const [operation, setOperation] = useState('0');
 
+  const clean = () => {
+    setOperation('0');
+  };
+
   const buildOperation = (number: string) => {
     if (operation.includes('.') && number === '.') {
       return;
@@ -32,5 +36,6 @@ export const useCalculator = () => {
   return {
     operation,
     buildOperation,
+    clean,
   };
 };
