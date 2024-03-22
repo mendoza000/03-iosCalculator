@@ -8,7 +8,10 @@ export const useCalculator = () => {
   };
 
   const deleteLastNumber = () => {
-    if (operation.length === 1 || operation === '-0') {
+    if (operation.length === 2 && operation.startsWith('-')) {
+      return setOperation('0');
+    }
+    if (operation.length === 1) {
       return setOperation('0');
     }
 
