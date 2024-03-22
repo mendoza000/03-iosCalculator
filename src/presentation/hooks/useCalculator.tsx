@@ -7,6 +7,14 @@ export const useCalculator = () => {
     setOperation('0');
   };
 
+  const deleteLastNumber = () => {
+    if (operation.length === 1) {
+      return setOperation('0');
+    }
+
+    setOperation(operation.slice(0, -1));
+  };
+
   const buildOperation = (number: string) => {
     if (operation.includes('.') && number === '.') {
       return;
@@ -37,5 +45,6 @@ export const useCalculator = () => {
     operation,
     buildOperation,
     clean,
+    deleteLastNumber,
   };
 };

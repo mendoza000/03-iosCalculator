@@ -5,7 +5,7 @@ import Button from '../components/ui/Button';
 import {useCalculator} from '../hooks/useCalculator';
 
 const CalculatorScreen = () => {
-  const {operation, buildOperation, clean} = useCalculator();
+  const {operation, buildOperation, clean, deleteLastNumber} = useCalculator();
 
   return (
     <View style={globalStyles.container}>
@@ -25,7 +25,7 @@ const CalculatorScreen = () => {
           color={colors.lightGray}
         />
         <Button
-          onPress={() => console.log('del')}
+          onPress={deleteLastNumber}
           text="del"
           color={colors.lightGray}
         />
